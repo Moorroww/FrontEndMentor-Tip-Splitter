@@ -1,0 +1,221 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    box-sizing: border-box;
+    font-family: monospace;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+:root {
+    /* PRIMARY COLORS */
+    --Very-dark-cyan: hsl(183, 100%, 15%);
+
+    /* NEUTRAL COLORS */
+    --Dark-grayish-cyan: hsl(186, 14%, 43%);
+    --Grayish-cyan: hsl(184, 14%, 56%);
+    --Cyan-vibrant: hsl(171, 68%, 46%);
+    --Light-grayish-cyan: hsl(185, 41%, 84%);
+    --Slightly-lighter-Cyan: hsl(183, 80%, 24%);
+    --Very-light-grayish-cyan: hsl(189, 41%, 97%);
+    --White: hsl(0, 0%, 100%);
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--Light-grayish-cyan);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    margin-bottom: 50px;
+}
+
+section{
+    max-width: 90vw;
+    height: 70vh;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#calculation-section, #display-section-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+
+#inputs-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+#inputs-wrapper label {
+    position: relative;
+    width: 80%;
+}
+#inputs-wrapper label img{
+    position: absolute;
+    width: 24px;
+    top: 50%;
+    left: 4%;
+    transform: translate(-4%, -50%);
+}
+#inputs-wrapper label input {
+    width: 100%;
+    outline: none;
+    border: none;
+    text-align: right;
+    background-color: var(--Very-light-grayish-cyan);
+    color: var(--Grayish-cyan);
+    padding: 20px;
+    border-radius: 8px;
+}
+#tip-section {
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    position: relative;
+}
+#tip-section::before {
+    content: "Select Tip %";
+    position: absolute;
+    top: -50px;
+}
+#tip-section input{
+    width: 100%;
+    background-color: var(--Very-dark-cyan);
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    color: var(--White);
+    text-align: center;
+    cursor: pointer;
+}
+input[type="number"]:focus{
+    outline-style: solid !important;
+    outline-width: 2px !important;
+    outline-color: var(--Cyan-vibrant) !important;
+}
+input::-webkit-outer-spin-button,   /* Removing arrows form type="number" fields */
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+#tip-section .tip-section-btn:hover, #tip-section .tip-section-btn:active {
+    background-color: var(--Cyan-vibrant);
+    color: var(--Very-dark-cyan);
+}
+#tip-section #custom-btn{
+    background-color: var(--Very-light-grayish-cyan);
+    color: var(--Grayish-cyan);
+}
+::placeholder {
+    color: var(--Grayish-cyan);
+}
+::before, ::after {
+    color: var(--Grayish-cyan);
+}
+#bill-value-label::before {
+    content: "Bill";
+    position: absolute;
+    top: -40px;
+}
+#number-of-ppl-label::before {
+    content: "Number of People";
+    position: absolute;
+    top: -40px;
+}
+
+
+#display-section {
+    width: 100%;
+    height: 100%;
+    background-color: var(--Very-dark-cyan);
+    border-radius: 20px;
+    padding: 70px 30px 70px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#pricing-wrapper {
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#tip-amount, #total-price {
+    color: var(--White);
+    display: flex;
+    justify-content: space-between;
+}
+#tip-amount p, #total-price p {
+    font-weight: 500;
+} 
+#tip-amount p > span, #total-price p > span {
+    font-size: 15px;
+    color: var(--Grayish-cyan);
+    letter-spacing: 2px;
+} 
+#counter-tip, #counter-total, #counter-tip span, #counter-total span{
+    font-size: 40px;
+    color: var(--Cyan-vibrant);
+}
+#reset-btn {
+    border: none;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: var(--Slightly-lighter-Cyan);
+    color: var(--Very-dark-cyan);
+}
+.btn-active {
+    background-color: var(--Cyan-vibrant) !important;
+    color: var(--Very-dark-cyan) !important;
+    cursor: pointer;
+}
+
+
+@media (max-width: 1350px) {
+    #tip-section {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 800px) {
+    body {
+        height: 150vh;
+    }
+    section {
+        flex-direction: column;
+        height: 130vh;
+    }
+    #inputs-wrapper label, #tip-section  {
+        width: 95%;
+    }
+    #display-section-wrapper {
+        height: 60%;
+    }
+    #counter-tip, #counter-total, #counter-tip span, #counter-total span{
+        font-size: 30px;
+        color: var(--Cyan-vibrant);
+    }
+    #tip-amount p, #total-price p {
+        font-size: 20px;
+    } 
+}
+
+
+
